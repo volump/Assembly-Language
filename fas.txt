@@ -1,0 +1,23 @@
+assume cs:code
+
+code segment
+
+	mov cx, 000A
+	mov ah, 01
+          R1:  int 21
+	push ax
+	loop R1
+	mov ah, 02
+	mov dl, 0A
+	int 21
+	mov dl, 0d
+	int 21
+	mov cx, 000A
+          R2:  pop dx
+	int 21
+	loop R2
+	int 3
+
+code ends
+
+end
